@@ -1,2 +1,2 @@
 # ScrollViewDemo
-无线滚动轮播图Demo，只需要下载一个组件放在工程就可以使用。
+无线滚动轮播图Demo，只需要把CustemScrollView和CollectionViewCell放在工程就可以使用。不仅可以用本地图片，也可以使用URL（前提工程里面有SDWebImage）
