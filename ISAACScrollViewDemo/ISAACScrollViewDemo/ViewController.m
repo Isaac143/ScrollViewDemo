@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CustemScrollView.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.title = @"无限滚动";
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    [self initViews];
+}
+
+- (void)initViews {
+    
+    NSMutableArray *imgArray = [NSMutableArray array];
+    for (int i = 0; i<3; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"guide_%d",i]];
+        
+        [imgArray addObject:image];
+    }
+    
+    NSString *url1 = @"http://www.xiaocaizhu365.com/oss/file/20160926/201609261719270960894453.png";
+    NSString *url2 = @"http://www.xiaocaizhu365.com/oss/file/20161118/201611181633502381098359.png";
+    NSString *url3 = @"http://www.xiaocaizhu365.com/oss/file/20160924/201609241604145308952421.png";
+    NSArray *imgArr = [NSArray arrayWithObjects:url1, url2, url3, nil];
+    
+    CustemScrollView *scrollView = [[CustemScrollView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, 200) ImageArr:imgArr];  //[NSArray arrayWithArray:imgArray]
+    
+    [self.view addSubview:scrollView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
