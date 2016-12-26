@@ -13,7 +13,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth,  self.contentView.frame.size.height)];
+        self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth,  180)];
         _imageView.userInteractionEnabled = YES;
         [self.contentView addSubview:self.imageView];
     }

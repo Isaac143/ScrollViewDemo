@@ -23,6 +23,9 @@
     self.window = [[UIWindow alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     ViewController *viewC = [[ViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:viewC];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor orangeColor], NSForegroundColorAttributeName, nil]forState:UIControlStateSelected];
+    
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     

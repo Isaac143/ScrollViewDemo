@@ -76,12 +76,14 @@
 
 - (void)createUI {
     
+    self.superview.inputViewController.automaticallyAdjustsScrollViewInsets = NO;
+    
     UICollectionViewFlowLayout * flowOut = [[UICollectionViewFlowLayout alloc]init];
     flowOut.minimumLineSpacing = 0;
-    
+    flowOut.minimumInteritemSpacing = 0;
     flowOut.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    flowOut.itemSize = CGSizeMake(ScreenWidth, self.frame.size.height);
-    self.secondCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, self.frame.size.height) collectionViewLayout:flowOut];
+    flowOut.itemSize = CGSizeMake(ScreenWidth, 180);
+    self.secondCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 180) collectionViewLayout:flowOut];
     _secondCollectionView.pagingEnabled = YES;
     _secondCollectionView.bounces = NO;
     _secondCollectionView.delegate = self;
@@ -92,12 +94,15 @@
     [self addSubview:self.secondCollectionView];
 }
 
+//- (void)layoutSubviews {
+//    [super layoutSubviews];
+//    _secondCollectionView.bounds = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height -20);
+//}
+
 #pragma mark CollectionView DataSource & Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (collectionView == self.secondCollectionView) {
-        return _bannerImgArray.count;
-    }
-    return 0;
+    
+    return _bannerImgArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -126,7 +131,9 @@
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 100;
 }
-
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(ScreenWidth, 180);
+}
 
 #pragma mark -- ScrollViewDelegate
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{

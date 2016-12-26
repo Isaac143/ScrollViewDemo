@@ -20,8 +20,11 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.title = @"无限滚动";
+//    [self.navigationController setNavigationBarHidden:YES];
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self initViews];
+    
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)initViews {
