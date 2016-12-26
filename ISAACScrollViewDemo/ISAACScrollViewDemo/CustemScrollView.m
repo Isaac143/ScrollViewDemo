@@ -80,23 +80,16 @@
     flowOut.minimumLineSpacing = 0;
     
     flowOut.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    flowOut.itemSize = CGSizeMake(ScreenWidth, self.bounds.size.height);
-    self.secondCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, self.bounds.size.height) collectionViewLayout:flowOut];
+    flowOut.itemSize = CGSizeMake(ScreenWidth, self.frame.size.height);
+    self.secondCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, self.frame.size.height) collectionViewLayout:flowOut];
     _secondCollectionView.pagingEnabled = YES;
     _secondCollectionView.bounces = NO;
     _secondCollectionView.delegate = self;
     _secondCollectionView.dataSource =self;
-//    _secondCollectionView.backgroundColor = [UIColor yellowColor];
+    _secondCollectionView.backgroundColor = [UIColor yellowColor];
     _secondCollectionView.showsHorizontalScrollIndicator=NO;
     [_secondCollectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"secondCell"];
     [self addSubview:self.secondCollectionView];
-}
-
-- (instancetype)initWithFrame:(CGRect)frame ImageURLArr:(NSArray *)imageUrlArray {
-    if ([super initWithFrame:frame]) {
-        
-    }
-    return  self;    
 }
 
 #pragma mark CollectionView DataSource & Delegate
@@ -124,7 +117,11 @@
     return nil;
     
 }
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.popBlock) {
+        self.popBlock(_bannerImgArray[indexPath.row]);
+    }
+}
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 100;

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef void(^PopBlock)(NSString *url);
+
 @interface CustemScrollView : UIView
 
 @property (nonatomic, strong)NSTimer *pictureTimer;
@@ -16,6 +19,8 @@
 //@property (nonatomic, strong)UIImageView *bannerBackImage;
 
 - (instancetype)initWithFrame:(CGRect)frame ImageArr:(NSArray *)imageArray;
+
+@property (nonatomic, copy)PopBlock popBlock;
 
 
 @end

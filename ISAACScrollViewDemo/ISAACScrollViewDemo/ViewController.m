@@ -38,7 +38,7 @@
     NSString *url3 = @"http://www.xiaocaizhu365.com/oss/file/20160924/201609241604145308952421.png";
     NSArray *imgArr = [NSArray arrayWithObjects:url1, url2, url3, nil];
     
-    CustemScrollView *scrollView = [[CustemScrollView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, 200) ImageArr:imgArr];  //[NSArray arrayWithArray:imgArray]
+    CustemScrollView *scrollView = [[CustemScrollView alloc]initWithFrame:CGRectMake(0, 100, ScreenWidth, 200) ImageArr:imgArr];  //[NSArray arrayWithArray:imgArray]
     
     [self.view addSubview:scrollView];
     
